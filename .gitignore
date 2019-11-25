@@ -1,0 +1,6 @@
+*.jarr
+book/
+video/
+.pyret
+.vscode
+.DS_Store
