@@ -23,8 +23,13 @@ check "dot-product of two vectors":
   dot-product(empty, empty) is 0
 end
 
+check "magnitude of a vector":
+  magnitude([list: 2, 4]) is-roughly num-sqrt((2 * 2) + (4 * 4))
+  magnitude([list: 2]) is 2
+end
+
 check "overlap of two documents":
   overlap([list:"a"], [list:"b"]) is 0
   overlap([list:"a"], [list:"a"]) is 1
-  overlap(d1, d2) is dot-product(v1, v2) / max([list: dot-product(v1, v1), dot-product(v2, v2)])
+  overlap(d1, d2) is-roughly dot-product(v1, v2) / max([list: num-sqr(magnitude(v1)), num-sqr(magnitude(v2))])
 end

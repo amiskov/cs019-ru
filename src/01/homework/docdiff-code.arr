@@ -35,6 +35,10 @@ fun dot-product(vec1 :: List<Number>, vec2 :: List<Number>) -> Number:
   end
 end
 
+fun magnitude(vec :: List<Number>) -> Number:
+  num-sqrt(dot-product(vec, vec))
+end
+
 fun overlap(doc1 :: List<String>, doc2 :: List<String>) -> Number:
   doc: "Returns a number, representing similarities with doc1 and doc2."
   words = findAllWords(doc1, doc2)
@@ -45,6 +49,5 @@ fun overlap(doc1 :: List<String>, doc2 :: List<String>) -> Number:
   dp1 = dot-product(vec1, vec1)
   dp2 = dot-product(vec2, vec2)
 
-  dp / max([list: dp1, dp2])
+  dp / max([list: num-sqr(magnitude(vec1)), num-sqr(magnitude(vec2))])
 end
-
