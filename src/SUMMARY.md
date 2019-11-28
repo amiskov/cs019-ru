@@ -2,9 +2,9 @@
 
 [О курсе](./readme.md)
 
-- [Лекция I](./01/index.md)
-- [Лекция II](./02/index.md)
-- [Лекция III](./03/index.md)
+- [Введение в Pyret и курс](./01/index.md)
+- [Rainfall Problem и ФП](./02/index.md)
+- [Списки, сортировка, контракты](./03/index.md)
 
 ## Домашки
 [DocDiff](./homeworks/01_docdiff.md)
