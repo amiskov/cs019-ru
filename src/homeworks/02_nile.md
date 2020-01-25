@@ -4,7 +4,7 @@
 ## 1. Introduction
 You are creating Nile.com, which you hope will be the next big thing in online bookstores. You know that you can save money by anticipating what books people will buy; you will pass these savings on to your users by offering a discount if they buy books that Nile recommends.
 
-> This assignment is meant to introduce you to the concept of collaborative filtering.
+> This assignment is meant to introduce you to the concept of [collaborative filtering](https://en.wikipedia.org/wiki/Collaborative_filtering).
 
 To do this, you offer an incentive for people to upload their lists of recommended books. From their lists, you can establish suggested pairs. A pair of books is a suggested pair if both books appear on one person’s recommendation list. Of course, some suggested pairs are more popular than others. Also, any given book is paired with some books much more frequently than with others.
 
@@ -13,6 +13,9 @@ Past students have found this assignment quite difficult relative to when it app
 
 ## 3. Assignment
 You need to organize the list of recommended books to support two tasks:
+
+- recommend a Book;
+- recommend a Pair of Books.
 
 ### 3.1 Recommend a Book
 When someone buys a book, you want to be able to suggest a second book to accompany it. Specifically, you should provide the book it is most frequently paired with in the recommendation lists, along with a count of how frequent this is. Because there may be more than one book with that count, you should return a list of books (even if there is only one) as well as the count. This will be in the form of a Recommendation:
@@ -47,7 +50,7 @@ Define the following functions:
 fun recommend(title :: String, book-records :: List<File>) -> Recommendation
 ```
 
-`recommend` takes a book title and a list of Files and produces a `Recommendation`. The `Recommendation`’s names is a list of the titles of the books that are most often paired with the input book. The `Recommendation`’s count is the number of times the books in the names list are each paired with the input book. When no pairing can be found, recommend should return `recommendation(0,[list: ])`.
+`recommend` takes a book title and a list of `File`s and produces a `Recommendation`. The `Recommendation`’s names is a list of the titles of the books that are most often paired with the input book. The `Recommendation`’s count is the number of times the books in the names list are each paired with the input book. When no pairing can be found, recommend should return `recommendation(0,[list: ])`.
 
 ```pyret
 fun popular-pairs(records :: List<File>) -> Recommendation
@@ -58,7 +61,7 @@ fun popular-pairs(records :: List<File>) -> Recommendation
 ### 3.4 Built-Ins
 For this assignment, you will need to write your own version of any built-in functions that you choose to use, other than the higher-order functions `map`, `filter`, and `fold`.
 
-> This is to force you to practice: you should be getting able to write such functions without much difficulty. Also, studies show that drill is a really good way to get better at programming.
+> This is to force you to practice: you should be getting able to write such functions without much difficulty. Also, studies show that _drill_ is a really good way to get better at programming.
 
 For strings, you may only use `string-to-code-point`, `string-from-code-point`, `string-to-code-points`, and `string-from-code-points`. Built-in string functions can be recreated by operating on lists of code points. You are, however, welcome to use operators on `String`s (`+`, `<=`, `>`, `==`, etc.).
 

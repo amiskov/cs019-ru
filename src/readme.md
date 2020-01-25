@@ -1,4 +1,5 @@
 # Accelerated Introduction to Computer Science
+Для кого курс и что в итоге будет знать студент? [Ответ автора](https://qr.ae/TWvxVk) на Quora.
 
 См. [readme](https://cs.brown.edu/courses/cs019/2018/README.html) курса.
 
