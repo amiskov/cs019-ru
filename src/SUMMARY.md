@@ -10,7 +10,13 @@
 - [Оптимизация, структурная и генеративная рекурсии](./06/index.md)
 - [Mutual recoursive data definitions, trees](./07/index.md)
 - [Sets I](./08/index.md)
-- [Sets II](./09/index.md)
+- [Sets II: Binary Tree, Binary Search Tree, Sets and (log n) complexity](./09/index.md)
+- [Balancing BSTs](./10/index.md)
+- [Infinity I: Lazy Sequences](./11/index.md)
+- [Infinity II](./12/index.md)
+- [Modeling State, Pong Game](./13/index.md)
+
+---
 
 ## Домашки
 [DocDiff](./homeworks/01_docdiff.md)
