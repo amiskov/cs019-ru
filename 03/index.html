@@ -1,0 +1,298 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Списки, сортировка, контракты - Accelerated Introduction to Computer Science</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">О курсе</a></li><li class="chapter-item expanded "><a href="../01/index.html"><strong aria-hidden="true">1.</strong> Введение в Pyret и курс</a></li><li class="chapter-item expanded "><a href="../02/index.html"><strong aria-hidden="true">2.</strong> Rainfall Problem и ФП</a></li><li class="chapter-item expanded "><a href="../03/index.html" class="active"><strong aria-hidden="true">3.</strong> Списки, сортировка, контракты</a></li><li class="chapter-item expanded "><a href="../04/index.html"><strong aria-hidden="true">4.</strong> Measuring the performance of programs</a></li><li class="chapter-item expanded "><a href="../05/index.html"><strong aria-hidden="true">5.</strong> Big-O for sorting</a></li><li class="chapter-item expanded "><a href="../06/index.html"><strong aria-hidden="true">6.</strong> Оптимизация, структурная и генеративная рекурсии</a></li><li class="chapter-item expanded "><a href="../07/index.html"><strong aria-hidden="true">7.</strong> Mutual recoursive data definitions, trees</a></li><li class="chapter-item expanded "><a href="../08/index.html"><strong aria-hidden="true">8.</strong> Sets I</a></li><li class="chapter-item expanded "><a href="../09/index.html"><strong aria-hidden="true">9.</strong> Sets II: Binary Tree, Binary Search Tree, Sets and (log n) complexity</a></li><li class="chapter-item expanded "><a href="../10/index.html"><strong aria-hidden="true">10.</strong> Balancing BSTs</a></li><li class="chapter-item expanded "><a href="../11/index.html"><strong aria-hidden="true">11.</strong> Infinity I: Lazy Sequences</a></li><li class="chapter-item expanded "><a href="../12/index.html"><strong aria-hidden="true">12.</strong> Infinity II</a></li><li class="chapter-item expanded "><a href="../13/index.html"><strong aria-hidden="true">13.</strong> Modeling State, Pong Game</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../homeworks/01_docdiff.html">DocDiff</a></li><li class="chapter-item expanded affix "><a href="../homeworks/02_nile.html">Nile</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Accelerated Introduction to Computer Science</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#Списки-сортировка-контракты" id="Списки-сортировка-контракты">Списки, сортировка, контракты</a></h1>
+<p><a href="https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=fb68ebe9-aaff-4398-a27a-a9590157d419">Wed 9_12_18</a></p>
+<p>Задача: отсортировать список чисел от меньшего к большему. Использовать только то, что знакомо, без методов стандартной библиотеки.</p>
+<p>Примеры:</p>
+<pre><code class="language-pyret">check &quot;sort list of numbers in ascending order&quot;:
+    [list: ] is [list: ] # базовый случай
+    [list: 3, 3, 3] is [list: 3, 3, 3] # убедится, что ничего не потеряем
+    [list: 1, 2, 3] is [list: 1, 2, 3] # что ничего не сломаем
+    # ...
+end
+</code></pre>
+<h2><a class="header" href="#Шаблон" id="Шаблон">Шаблон</a></h2>
+<p>Мы работаем с рекурсивной структурой дынных «список чисел» (List of Numbers). Вот её определение:</p>
+<pre><code class="language-pyret">data LoN:
+    | empty =&gt; ...
+    | link(f, r) =&gt; ...
+end
+</code></pre>
+<p>В языке уже есть <code>List&lt;Number&gt;</code>, но чтобы с ним работать, мы должны понимать, как он устроен внутри.</p>
+<p>На основе структуры данных мы можем сформировать шаблон для работы с ней. Зачем нужен шаблон? Затем, что все функции для работы со структурой данных будут выглядеть похожим образом. Если мы составим общий паттерн для функции, которая обрабатывает структуру данных (все возможные кейсы), мы получим основу для любой задачи, которая использует эту структуру данных.</p>
+<blockquote>
+<p>Template is an attempt to extract as much code as we can out of the data definition even before we know what problem we're trying to solve.</p>
+</blockquote>
+<p>Шаблон функции для работы со списком чисел:</p>
+<pre><code class="language-pyret">fun lon-fn(l :: List&lt;Number&gt;) -&gt; ...:
+    cases(List) l:
+        | empty =&gt; ...
+        | link(f, r) =&gt;
+            ...f...
+            ...lon-fn(r)...
+    end
+end
+</code></pre>
+<p>Мы не знаем, что эта функция будет возвращать и как конкретно она будет обрабатывать возможные варианты списка чисел, поэтому ставим <code>...</code>, которые будут заполняться в процессе решения конкретной задачи.</p>
+<p>В случае <code>empty</code> мы уже ничего не можем вытащить из определения данных (всё, пусто), поэтому сразу <code>...</code>. В случае <code>link(f, r)</code> есть ещё <code>f</code> и <code>r</code>.</p>
+<p><code>f</code> — уже конкретное значение, мы можем с ним работать, отображаем это как <code>...f...</code>. <code>r</code> — это такой же список чисел, как исходный <code>l</code> и для него шаблон может повториться заново (т.к. структура данных рекурсивная).</p>
+<p>Прелесть составления шаблона в том, что мы получаем код без раздумий, просто анализируя определение типа данных, независимо от задачи, которую надо решить. И этот код частично или полностью может быть использован при составлении любой функции, которая работает со списком чисел.</p>
+<p>Это работает везде: определение данных рулит процессом их обработки (центральная идея ООП).</p>
+<blockquote>
+<p>You drive the structure of the program from the structure of the data. This is the central idea of the object-oriented programming.</p>
+</blockquote>
+<p>Эта идея по-разному реализована в ООП-языках и функциональных языках, но она одна.</p>
+<p>Шаблон дает подсказку. Если задача — написать функцию, которая получает список чисел и тупо возвращает <code>3</code>, то вообще <code>cases</code> не нужны. Если задача — посчитать количество элементов, то во втором кейсе значение <code>f</code> не важно, вместо него будет всегда <code>1</code>. Но шаблон показывает нам то, что у нас есть в арсенале исходя из определения данных (inventory): вот из этих штук ты можешь составить решение, используй то, что нужно.</p>
+<h2><a class="header" href="#Структурная-рекурсия" id="Структурная-рекурсия">Структурная рекурсия</a></h2>
+<p>Сортировка в <code>lon-sort.arr</code> — пример структурной рекурсии (structural recursion). Структурная рекурсия получается, когда само определение типа данных (списка) говорит, на чем надо запускать рекурсию (rest). Структурная рекурсия <em>гарантированно завершится</em>.</p>
+<h2><a class="header" href="#Индуктивное-программирование" id="Индуктивное-программирование">Индуктивное программирование</a></h2>
+<p>Мы предполагаем, что функция <code>sort</code> сортирует список чисел по возрастанию и делаем следующий шаг. Мы предполагаем, что функция <code>insert</code> вставляет число в нужное место в отсортированном списке и делаем следующий шаг. Это как индукция в математике.</p>
+<p>Структура данных (список) сконструирована из тех же составных частей, на которые мы её разбиваем в шаблоне. Мы программируем <em>индуктивно</em>, как в математике доказывают по индукции. Индуктивная структура данных — индуктивное программирование.</p>
+<h2><a class="header" href="#Контракты-с-уточнёнными-типами" id="Контракты-с-уточнёнными-типами">Контракты с уточнёнными типами</a></h2>
+<p>В аннотации типов можно использовать предикаты, чтобы добавить ограничения для значений типа. Например, чтобы показать, что <code>List&lt;Number&gt;</code> должен быть отсортирован, нужно создать функцию-предикат <code>is-sorted</code> и добавить её в аннотацию типа через <code>%</code>:</p>
+<pre><code class="language-pyret">fun insert(n :: Number, lst :: List&lt;Number&gt;%(is-sorted)) -&gt; List&lt;Number&gt;%(is-sorted):
+    #...
+end
+</code></pre>
+<p>Предикат будет запущен в рантайме на значении, проверит его на соответствие и покажет ошибку, если они не подходят:</p>
+<p><img src="./img/refinement_type_error.png" alt="" /></p>
+<p>Такие типы с прикреплёнными предикатами называются <a href="https://en.wikipedia.org/wiki/Refinement_type">refinement type</a>.</p>
+<p>Тип данных <code>List</code> в языке далеко не всегда хорошо отображает предметную область задачи. Например, бессмысленно искать среднее арифметическое или максимальное значение в пустом списке. Правильный подход к такой задаче — решать её на уже ограниченном множестве. Так мы отсекаем все исключительные ситуации и может просто о них не думать.</p>
+<p>Мы будем считать, что функции <code>average</code> и <code>max</code> могут быть объявлены <em>только для не пустых списков</em>. Для этого можно подготовить новый тип <code>NonEmptyList</code>, который может содержать либо одно значение, либо такой же <code>NonEmptyList</code>:</p>
+<pre><code class="language-pyret">data NEList:
+    | one(n :: Number)
+    | ne-link(first :: Number, rest :: NEList)
+end
+
+fun max(l :: NEList) -&gt; Number:
+    # ...
+end
+</code></pre>
+<p>Либо использовать уточнённый тип:</p>
+<pre><code class="language-pyret">fun lon-max(l :: List&lt;Number&gt;%(is-non-empty)) -&gt; Number:
+    # ...
+end
+
+fun max(l :: List&lt;Number&gt;%(is-non-empty)) -&gt; Number:
+    # ...
+end
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../02/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../04/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../02/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../04/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

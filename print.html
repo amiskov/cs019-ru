@@ -1,0 +1,1092 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Accelerated Introduction to Computer Science</title>
+        
+        <meta name="robots" content="noindex" />
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">О курсе</a></li><li class="chapter-item expanded "><a href="01/index.html"><strong aria-hidden="true">1.</strong> Введение в Pyret и курс</a></li><li class="chapter-item expanded "><a href="02/index.html"><strong aria-hidden="true">2.</strong> Rainfall Problem и ФП</a></li><li class="chapter-item expanded "><a href="03/index.html"><strong aria-hidden="true">3.</strong> Списки, сортировка, контракты</a></li><li class="chapter-item expanded "><a href="04/index.html"><strong aria-hidden="true">4.</strong> Measuring the performance of programs</a></li><li class="chapter-item expanded "><a href="05/index.html"><strong aria-hidden="true">5.</strong> Big-O for sorting</a></li><li class="chapter-item expanded "><a href="06/index.html"><strong aria-hidden="true">6.</strong> Оптимизация, структурная и генеративная рекурсии</a></li><li class="chapter-item expanded "><a href="07/index.html"><strong aria-hidden="true">7.</strong> Mutual recoursive data definitions, trees</a></li><li class="chapter-item expanded "><a href="08/index.html"><strong aria-hidden="true">8.</strong> Sets I</a></li><li class="chapter-item expanded "><a href="09/index.html"><strong aria-hidden="true">9.</strong> Sets II: Binary Tree, Binary Search Tree, Sets and (log n) complexity</a></li><li class="chapter-item expanded "><a href="10/index.html"><strong aria-hidden="true">10.</strong> Balancing BSTs</a></li><li class="chapter-item expanded "><a href="11/index.html"><strong aria-hidden="true">11.</strong> Infinity I: Lazy Sequences</a></li><li class="chapter-item expanded "><a href="12/index.html"><strong aria-hidden="true">12.</strong> Infinity II</a></li><li class="chapter-item expanded "><a href="13/index.html"><strong aria-hidden="true">13.</strong> Modeling State, Pong Game</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="homeworks/01_docdiff.html">DocDiff</a></li><li class="chapter-item expanded affix "><a href="homeworks/02_nile.html">Nile</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Accelerated Introduction to Computer Science</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#accelerated-introduction-to-computer-science" id="accelerated-introduction-to-computer-science">Accelerated Introduction to Computer Science</a></h1>
+<p>Для кого курс и что в итоге будет знать студент? <a href="https://qr.ae/TWvxVk">Ответ автора</a> на Quora.</p>
+<p>См. <a href="https://cs.brown.edu/courses/cs019/2018/README.html">readme</a> курса.</p>
+<p>Всего 36 лекций, по три в неделю: пн, ср, пт.</p>
+<h2><a class="header" href="#Материалы-курса" id="Материалы-курса">Материалы курса</a></h2>
+<ul>
+<li><a href="https://cs.brown.edu/courses/cs019/2018/index.html">Страница курса</a> на сайте Брауновского университета.</li>
+<li><a href="https://brown.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222559ad35-3fff-4ef1-a2ac-a951011eb91e%22&amp;view=2&amp;maxResults=250">Записи лекций</a>.</li>
+<li><a href="http://examplar.cs.brown.edu">Examplar</a> — помогает писать хорошие тесты. См. <a href="https://youtu.be/ofpwTbvG7MA">видео</a>.</li>
+<li><a href="https://cs.brown.edu/courses/cs019/2018/assignments.html">Домашки</a> к лекциям.</li>
+</ul>
+<h1><a class="header" href="#Введение-в-pyret-и-курс" id="Введение-в-pyret-и-курс">Введение в Pyret и курс</a></h1>
+<p>Студенты в подготовительном курсе изучали HtDP и Racket. TODO: добавить ссылки.</p>
+<p>Pyret студент по большей части изучает сам, делая домашки. В курсе используются далеко не все фичи языка.</p>
+<p>Язык программирования — это мир, который кто-то придумал. В разных языках — разные правила. Нет никаких незыблемых законов, как в физике, всё решает создатель языка. И здесь нормально не знать ответ «как это работает» заранее. Эксперимент, документация — так можно научиться.</p>
+<p>В CS часто встречаются ситуации, когда нужно просто смириться с чьим-то решением и играть по существующим правилам. Пример — в Pyret вокруг математических операторов нужны пробелы:</p>
+<pre><code class="language-pyret">3 + 3 # вокруг плюса нужны пробелы
+3+3   # ошибка
+</code></pre>
+<p>Однако, курс не про это. <em>Курс про фундаментальные идеи, которые ещё не скоро устареют.</em></p>
+<p>В Pyret можно создавать свои типы данных, помимо уже имеющихся в языке чисел, строк и пр.</p>
+<pre><code class="language-pyret">data Insect:
+  | spider(web) # spiders could have a web
+  | centipede(name) # cent. could have a name
+end
+
+# Для примера тип данных «список».
+# Список уже определён в Pyret, при запуске будет ошибка.
+data List:
+  | empty
+  | link(f, r)
+end
+
+fun name(i):
+  doc: &quot;Returns a name of an insect.&quot;
+  cases (Insect) i:
+    | spider(w)    =&gt; &quot;don't know&quot;
+    | centipede(n) =&gt; n
+  end
+where:
+  name(i1) is &quot;don't know&quot;
+  name(i2) is &quot;Millie&quot;
+end
+
+fun length(l):
+  doc: &quot;Returns the length of a list.&quot;
+  cases (List) l:
+    | empty =&gt; 0
+    | link(f, r) =&gt; 1 + length(r)
+  end
+where:
+  length(empty) is 0
+  length([list: 33]) is 1
+  length([list: 1, 2, 3]) is 3
+end
+</code></pre>
+<ul>
+<li><code>cases</code> нужен для обработки вариантов составных типов данных (to pull apart data types);</li>
+<li><code>if</code> и <code>ask</code> — для условных конструкций.</li>
+</ul>
+<h2><a class="header" href="#htdp-рецепты" id="htdp-рецепты">HtDP-рецепты</a></h2>
+<p>В районе 14-й минуты Шрирам рассказывает, откуда взялись рецепты в HtDP.</p>
+<p>Когда студенты приходили за подсказками к TA, были проблемы с пониманием, где конкретно была ошибка. Студент не мог объяснить, на каком этапе решения задачи он застрял, потому что не было формального разделения процесса решения задачи на шаги.</p>
+<p>Рецепты позволили формализовать процесс решения задач и тем самым позволили студентам задавать более конкретные вопросы и лучше объяснять трудности. Теперь они могли сказать, например, так: я записал сигнатуру, назначение, тесты и не могу придумать заглушку (см. <a href="http://andreymiskov.ru/mooc_htdp/1b_htdf/#htdf-recipe">рецепт для функций</a>). Теперь можно провести диагностику проблемы, когда студент приходит за помощью.</p>
+<p>По рецепту нужно записать примеры/тесты до реализации. Примеры иногда требуют достаточно много времени и, если дедлайн поджимает, то тянет начать сразу фигачить. Но это не работает. Даже если тесты занимают 80% всего времени, то это нормально. Это правильный способ мышления. Тесты позволяют понять задачу и структурировать всё в голове, чтобы родить хорошее решение.</p>
+<p>На этом курсе студент может решать задачи как хочет. Но если он придёт за помощью к TA, то ему нужно будет следовать рецептам, потому что TA будут проводить диагностику по шагам, начиная с самого первого.</p>
+<h2><a class="header" href="#Мышление" id="Мышление">Мышление</a></h2>
+<p>Курс учит инженерии, а инженер <em>анализирует задачи и оценивает способы реализации</em>. Каждая домашка будет содержать <a href="https://4brain.ru/blog/%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BD%D0%B5%D1%81%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D1%85-%D0%B7%D0%B0%D0%B4%D0%B0%D1%87-%D1%84%D0%B5%D1%80%D0%BC%D0%B8/">задачу Ферми</a>. Эти вопросы не имеют верного ответа, но сам процесс поиска ответа полезен и может показать способности человека к нужному виду мышления. Решая такие задачи мы тренируем инженерный способ мышления.</p>
+<p>Решение не надо точно высчитывать. Достаточно обозначить необходимые данные, предложить способ решения и прикинуть результат.</p>
+<p>Такие задачи часто <a href="https://tproger.ru/problems/fermi/">спрашивают</a> на собеседованиях.</p>
+<h2><a class="header" href="#Материалы" id="Материалы">Материалы</a></h2>
+<ul>
+<li>Видео на винте — <code>01_Wed 9_5_18.ts</code>, видео на сайте Брауна — <a href="https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f53a52c3-2d36-406a-bde4-a952013df5e2">Wed 9_5_18</a>.</li>
+<li>Домашка <a href="https://cs.brown.edu/courses/cs019/2018/docdiffdocdiff.html">DocDiff</a>, 2 дня на решение.</li>
+<li>Домашка локально <a href="01/./homework/readme.html">DocDiff</a>, 2 дня на решение.</li>
+</ul>
+<h2><a class="header" href="#Прочее" id="Прочее">Прочее</a></h2>
+<p>На лекциях запрещены ноутбуки. Исследования показывают, что студенты не столько сами отвлекаются в ноуты, сколько отвлекают других. Ладно сам тупишь сидишь, но другие это видят и отвлекаются.</p>
+<p>Шрирам уже 10 лет уже преподает CS19.</p>
+<h1><a class="header" href="#rainfall-problem-и-ФП" id="rainfall-problem-и-ФП">Rainfall Problem и ФП</a></h1>
+<p>Лекция начинается с задачи:</p>
+<blockquote>
+<p>Напишите программу, которая получает на вход массив чисел и возвращает среднее значение чисел больше нуля, которые попадаются до -999.</p>
+<p>Write a program that takes a list/array of numbers and produces the average of non-negative numbers that occur before (an optional) <code>-999</code>.</p>
+<p>Ignore I/O - just take a list/array as input. Use any language you wish.</p>
+</blockquote>
+<p>Эта задача известна в обучении CS, её называют Rainfall problem.</p>
+<p>Пример: у нас есть сенсор, который считает количество осадков. Иногда его глючит и он записывает отрицательные значения. Это ок, мы их просто игнорируем. Когда его выключают, он посылает значение <code>-999</code>, а то, что идёт потом нам не интересно, потому что это шум.</p>
+<h2><a class="header" href="#rainfall-considered-harmful" id="rainfall-considered-harmful">Rainfall Considered Harmful</a></h2>
+<p>Начиная с семидесятых эту задачу использовали для проверки навыков студентов. Около 70% решали её с ошибками, писали неуместный код и т.д.</p>
+<p>Эта задача — тест на декомпозицию.</p>
+<p>Декомпозиция:</p>
+<ul>
+<li>отсечь список до -999</li>
+<li>убрать отрицательные значения</li>
+<li>просуммировать оставшиеся элементы</li>
+<li>посчитать количество элементов</li>
+<li>посчитать среднее</li>
+<li>обработать исключительные ситуации: пустой список, только отрицательные, только -999.</li>
+</ul>
+<h2><a class="header" href="#Функции-для-абстракций" id="Функции-для-абстракций">Функции для абстракций</a></h2>
+<p>Шрирам показал <a href="https://www.youtube.com/watch?v=GyNqlOjhPCQ">видос</a> про абстракцию с помощью функций на циклах. Студент ожидаемо задал вопрос про скорость вычисления: что быстрее, <code>for</code> или <code>map</code>. Шрирам ответил: мы не можем ответить на этот вопрос до тех пор, пока не узнаем, что делает компилятор. Например, в Хаскеле функции mpa/filter/fold становятся оптимизированными циклами при компиляции (см. <a href="https://en.wikipedia.org/wiki/Deforestation_(computer_science)">deforestation</a>).</p>
+<p>Использовал переменную с именем sentinel (часовой, страж) (см. район 28-й минуты). Это устоявшаяся <a href="https://en.wikipedia.org/wiki/Sentinel_value">терминология</a></p>
+<p>map/filter/fold в Хаскеле преобразуются в циклы, это называется <a href="https://en.wikipedia.org/wiki/Deforestation_(computer_science)">deforestation</a>.</p>
+<h2><a class="header" href="#Материалы-1" id="Материалы-1">Материалы</a></h2>
+<ul>
+<li><a href="https://computinged.wordpress.com/2010/08/16/a-challenge-to-computing-education-research-make-measurable-progress/">A Challenge to Computing Education Research: Make Measurable Progress</a>, про rainfall problem.</li>
+</ul>
+<h1><a class="header" href="#Списки-сортировка-контракты" id="Списки-сортировка-контракты">Списки, сортировка, контракты</a></h1>
+<p><a href="https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=fb68ebe9-aaff-4398-a27a-a9590157d419">Wed 9_12_18</a></p>
+<p>Задача: отсортировать список чисел от меньшего к большему. Использовать только то, что знакомо, без методов стандартной библиотеки.</p>
+<p>Примеры:</p>
+<pre><code class="language-pyret">check &quot;sort list of numbers in ascending order&quot;:
+    [list: ] is [list: ] # базовый случай
+    [list: 3, 3, 3] is [list: 3, 3, 3] # убедится, что ничего не потеряем
+    [list: 1, 2, 3] is [list: 1, 2, 3] # что ничего не сломаем
+    # ...
+end
+</code></pre>
+<h2><a class="header" href="#Шаблон" id="Шаблон">Шаблон</a></h2>
+<p>Мы работаем с рекурсивной структурой дынных «список чисел» (List of Numbers). Вот её определение:</p>
+<pre><code class="language-pyret">data LoN:
+    | empty =&gt; ...
+    | link(f, r) =&gt; ...
+end
+</code></pre>
+<p>В языке уже есть <code>List&lt;Number&gt;</code>, но чтобы с ним работать, мы должны понимать, как он устроен внутри.</p>
+<p>На основе структуры данных мы можем сформировать шаблон для работы с ней. Зачем нужен шаблон? Затем, что все функции для работы со структурой данных будут выглядеть похожим образом. Если мы составим общий паттерн для функции, которая обрабатывает структуру данных (все возможные кейсы), мы получим основу для любой задачи, которая использует эту структуру данных.</p>
+<blockquote>
+<p>Template is an attempt to extract as much code as we can out of the data definition even before we know what problem we're trying to solve.</p>
+</blockquote>
+<p>Шаблон функции для работы со списком чисел:</p>
+<pre><code class="language-pyret">fun lon-fn(l :: List&lt;Number&gt;) -&gt; ...:
+    cases(List) l:
+        | empty =&gt; ...
+        | link(f, r) =&gt;
+            ...f...
+            ...lon-fn(r)...
+    end
+end
+</code></pre>
+<p>Мы не знаем, что эта функция будет возвращать и как конкретно она будет обрабатывать возможные варианты списка чисел, поэтому ставим <code>...</code>, которые будут заполняться в процессе решения конкретной задачи.</p>
+<p>В случае <code>empty</code> мы уже ничего не можем вытащить из определения данных (всё, пусто), поэтому сразу <code>...</code>. В случае <code>link(f, r)</code> есть ещё <code>f</code> и <code>r</code>.</p>
+<p><code>f</code> — уже конкретное значение, мы можем с ним работать, отображаем это как <code>...f...</code>. <code>r</code> — это такой же список чисел, как исходный <code>l</code> и для него шаблон может повториться заново (т.к. структура данных рекурсивная).</p>
+<p>Прелесть составления шаблона в том, что мы получаем код без раздумий, просто анализируя определение типа данных, независимо от задачи, которую надо решить. И этот код частично или полностью может быть использован при составлении любой функции, которая работает со списком чисел.</p>
+<p>Это работает везде: определение данных рулит процессом их обработки (центральная идея ООП).</p>
+<blockquote>
+<p>You drive the structure of the program from the structure of the data. This is the central idea of the object-oriented programming.</p>
+</blockquote>
+<p>Эта идея по-разному реализована в ООП-языках и функциональных языках, но она одна.</p>
+<p>Шаблон дает подсказку. Если задача — написать функцию, которая получает список чисел и тупо возвращает <code>3</code>, то вообще <code>cases</code> не нужны. Если задача — посчитать количество элементов, то во втором кейсе значение <code>f</code> не важно, вместо него будет всегда <code>1</code>. Но шаблон показывает нам то, что у нас есть в арсенале исходя из определения данных (inventory): вот из этих штук ты можешь составить решение, используй то, что нужно.</p>
+<h2><a class="header" href="#Структурная-рекурсия" id="Структурная-рекурсия">Структурная рекурсия</a></h2>
+<p>Сортировка в <code>lon-sort.arr</code> — пример структурной рекурсии (structural recursion). Структурная рекурсия получается, когда само определение типа данных (списка) говорит, на чем надо запускать рекурсию (rest). Структурная рекурсия <em>гарантированно завершится</em>.</p>
+<h2><a class="header" href="#Индуктивное-программирование" id="Индуктивное-программирование">Индуктивное программирование</a></h2>
+<p>Мы предполагаем, что функция <code>sort</code> сортирует список чисел по возрастанию и делаем следующий шаг. Мы предполагаем, что функция <code>insert</code> вставляет число в нужное место в отсортированном списке и делаем следующий шаг. Это как индукция в математике.</p>
+<p>Структура данных (список) сконструирована из тех же составных частей, на которые мы её разбиваем в шаблоне. Мы программируем <em>индуктивно</em>, как в математике доказывают по индукции. Индуктивная структура данных — индуктивное программирование.</p>
+<h2><a class="header" href="#Контракты-с-уточнёнными-типами" id="Контракты-с-уточнёнными-типами">Контракты с уточнёнными типами</a></h2>
+<p>В аннотации типов можно использовать предикаты, чтобы добавить ограничения для значений типа. Например, чтобы показать, что <code>List&lt;Number&gt;</code> должен быть отсортирован, нужно создать функцию-предикат <code>is-sorted</code> и добавить её в аннотацию типа через <code>%</code>:</p>
+<pre><code class="language-pyret">fun insert(n :: Number, lst :: List&lt;Number&gt;%(is-sorted)) -&gt; List&lt;Number&gt;%(is-sorted):
+    #...
+end
+</code></pre>
+<p>Предикат будет запущен в рантайме на значении, проверит его на соответствие и покажет ошибку, если они не подходят:</p>
+<p><img src="03/./img/refinement_type_error.png" alt="" /></p>
+<p>Такие типы с прикреплёнными предикатами называются <a href="https://en.wikipedia.org/wiki/Refinement_type">refinement type</a>.</p>
+<p>Тип данных <code>List</code> в языке далеко не всегда хорошо отображает предметную область задачи. Например, бессмысленно искать среднее арифметическое или максимальное значение в пустом списке. Правильный подход к такой задаче — решать её на уже ограниченном множестве. Так мы отсекаем все исключительные ситуации и может просто о них не думать.</p>
+<p>Мы будем считать, что функции <code>average</code> и <code>max</code> могут быть объявлены <em>только для не пустых списков</em>. Для этого можно подготовить новый тип <code>NonEmptyList</code>, который может содержать либо одно значение, либо такой же <code>NonEmptyList</code>:</p>
+<pre><code class="language-pyret">data NEList:
+    | one(n :: Number)
+    | ne-link(first :: Number, rest :: NEList)
+end
+
+fun max(l :: NEList) -&gt; Number:
+    # ...
+end
+</code></pre>
+<p>Либо использовать уточнённый тип:</p>
+<pre><code class="language-pyret">fun lon-max(l :: List&lt;Number&gt;%(is-non-empty)) -&gt; Number:
+    # ...
+end
+
+fun max(l :: List&lt;Number&gt;%(is-non-empty)) -&gt; Number:
+    # ...
+end
+</code></pre>
+<h1><a class="header" href="#measuring-the-performance-of-programs" id="measuring-the-performance-of-programs">Measuring the performance of programs</a></h1>
+<p>04_Fri_9_14_18.ts</p>
+<p>Text: <a href="https://papl.cs.brown.edu/2019/predicting-growth.html">Predicting Growth</a></p>
+<p>В этом курсе в качестве показателя перформанса измеряется только время.</p>
+<p>Возьмём функцию <code>length :: List&lt;T&gt; -&gt; Number</code>. Мы хотим измерить её производительность (эффективность, быстродействие, performance). Результат какого типа нам нужен? Число? Но это не скорость выполнения. Мы измеряем не производительность функции <code>length</code> для конкретного списка списка, состоящего из нуля, трёх, семи и др. количества элементов, <em>мы измеряем производительность самой функции</em>.</p>
+<p>Показатель производительности можно представить в виде функции от количества входных элементов (размер списка), которая возвращает количество шагов, которые должна совершить функция <code>length</code>, чтобы выдать результат.</p>
+<p>Простая функция <code>length</code>:</p>
+<pre><code class="language-pyret">fun length(l :: List&lt;T&gt;) -&gt; Number:
+  cases (List) l:
+    | empty =&gt; 0
+    | link(f, r) =&gt; 1 + length(r)
+end
+</code></pre>
+<h1><a class="header" href="#big-o-for-sorting" id="big-o-for-sorting">Big-O for sorting</a></h1>
+<p>04_Fri_9_14_18.ts</p>
+<p>Reading: https://papl.cs.brown.edu/2019/predicting-growth.html</p>
+<p>Написали функцию sort, как в <code>03/lon-sort.arr</code> и считали её вычислительную сложность (O-большое).</p>
+<p>При вычислении O нужно учитывать только пессимистические сценарии. The worst case assumption. Например, при анализе if/else нужно выбирать то, что требует бОльшего количества шагов.</p>
+<h1><a class="header" href="#Оптимизация-структурная-и-генеративная-рекурсии" id="Оптимизация-структурная-и-генеративная-рекурсии">Оптимизация, структурная и генеративная рекурсии</a></h1>
+<p>Новый, экспериментальный редактор (может глючить): https://cpo.herokuapp.com/editor</p>
+<p>В новом редакторе есть фичи: трейсинг и тайп-чекинг. Трейс показывает выполнение кода в виде графа и можно получить некоторые инсайты.</p>
+<p>Например, так выглядит сортировка <em>уже</em> отсортированного списка <code>sort([list: 1, 2, 3, 4, 5])</code>:</p>
+<p><img src="06/./img/sort_linear.png" alt="" /></p>
+<p>Каждый раз вызов <code>insert</code> происходит ровно 1 раз и чётко видно линейную (linear) зависимость.</p>
+<p>А так выглядит худший случай — сортировка reversed-списка <code>sort([list: 5, 4, 3, 2, 1])</code>:</p>
+<p><img src="06/./img/sort_worst.png" alt="" /></p>
+<p>С каждой итерацией прибавляется новый элемент и каждая последующая вставка <code>insert</code> выполняется дольше. Это квадратичный алгоритм.</p>
+<h2><a class="header" href="#Рецептышаблоны-как-прототипы-решений" id="Рецептышаблоны-как-прототипы-решений">Рецепты/шаблоны как прототипы решений</a></h2>
+<p>В HtDP рецепты нужны для того, чтобы получить <em>интуитивно подходящее для структура дынных рабочее</em> решение. Но не алгоритмически оптимальное решение.</p>
+<p>Зачем такое решение вообще может быть полезно? Затем, что мы максимально быстро можем проверить свою гипотезу. Когда задача сложная, то нам не стоит закапываться в оптимизацию до тех пор, пока мы не проверим свой алгоритм, свою гипотезу о верном решении. Но решив задачу максимально быстро и интуитивно и проверив её на тестовых данных мы можем спокойно оптимизировать решение уже зная, что оно рабочее.</p>
+<p><a href="https://en.wikipedia.org/wiki/Test_oracle">Test Oracle</a>. Проектируя сложную систему стоит сначала создать более простую, проверить её и на её основе продолжать разрабатывать сложную.</p>
+<p>Пример: математик придумал формулу для каких-то ядерных вычислений. Она относительно небольшая. Программист превращает эту формулу в код, они с математиком проверяют корректность. Потом этот код дописывается так, чтобы он работал на большом вычислительном комплексе, кода становится во много раз больше, он учитывает массу разных штук (протоколы, параллельные вычисления и пр.) но тот, первый, простой вариант программы позволяет проверить итоговую реализацию на корректность.</p>
+<h2><a class="header" href="#Оптимизация-алгоритма-сортировки" id="Оптимизация-алгоритма-сортировки">Оптимизация алгоритма сортировки</a></h2>
+<p>В 1959-м году Тони Хоар придумал <a href="https://en.wikipedia.org/wiki/Quicksort">quicksort</a>:</p>
+<ul>
+<li>Берём первый элемент списка <code>f</code> — pivot element (опорная точка);</li>
+<li>Разделяем оставшийся список на два: первый меньше <code>f</code>, второй больше <code>f</code>;</li>
+<li>Сортируем каждый список</li>
+<li>Объединяем оба списка в один с <code>f</code> посередине.</li>
+</ul>
+<p>См. <code>lon-quicksort.arr</code>.</p>
+<p>В решении задействовано несколько функций: <code>sort</code>, <code>all-lt</code>, <code>all-gte</code>, <code>combine</code>. Без тестов для каждой функции мы не сможем чётко изолировать проблему, если она возникнет. Чтобы показать это, Шрирам нарочно упустил <code>&gt;=</code> в одной из вспомогательных функций. И ещё он в <code>all-gt</code> вызывал <code>all-lt</code>, вместо рекурсивного вызова <code>all-gt</code>. Проблема копипаста.</p>
+<p>Есть категория проблем (багов), которые в принципе не могут произойти при использовании HtDP-рецептов.</p>
+<p>Когда мы пишем алгоритм и замечаем, что написали сами то, что уже есть в языке, надо использовать то, что в языке. Потому что оно более оптимально. Например, <code>all-lt</code> и <code>all-gte</code> — это фильтры и лучше юзать <code>filter</code>.</p>
+<p>Часто тем, кто пришёл из императивного стиля хочется добавить <em>флаг</em> — дополнительный параметр в функцию, который будет говорить, надо ли делать сравнение через <code>&lt;</code> или <code>&gt;</code>. Это ок для школы, но в реальной жизни стоит помнить, что таких <em>опций может быть несколько</em>:</p>
+<blockquote>
+<p>If you have a procedure with 10 parameters, you probably missed some.</p>
+<p>— Alan Perlis</p>
+</blockquote>
+<p>Выход — передавать функцию параметром, которая сама решит, что надо делать. Так мы получим reusable abstraction. <strong>В 4-й домашке это есть.</strong></p>
+<p>Примеры такой абстракции — <code>filter</code>, <code>map</code>, <code>fold</code>: мы сделали функции, которые отражают концепцию, а ты просто объясни, как именно этот концепт реализовать на твоей коллекции.</p>
+<p>Нужно использовать структуру данных (список в случае сортировки) так, чтобы получалось максимально простое, наивное решение, которое не надо додумывать.</p>
+<p>В случае с <code>all-lt</code> и <code>all-gte</code> мы генерируем новые проблемы. Какой длины получится список <code>all-lt(pivot, r)</code>? Если длина исходного списка равна <code>k</code>, то длина <code>r</code> равна <code>k - 1</code>, да? Или нет? А зависит от того, строгое или не строго неравенство используется. Часто <code>all-lt</code>/<code>all-gt</code> запускают не на <code>r</code>, а на исходном списке <code>l</code> (ну список же) и получают бесконечную рекурсию. Вот таких вопросов можно избежать.</p>
+<p>Если взять задачу и решить её по рецепту через структурную рекурсию, то этих вопросов не будет. Нам не надо думать, завершится ли выполнение, правильно ли мы сравнили и т.д. Структурная рекурсия вытекает из самой структуры данных, с которой мы работаем. Оптимизируя мы уже используем generative recursion. Об этом есть <a href="https://htdp.org/2018-01-06/Book/part_five.html">параграф в HtDP</a>.</p>
+<p>Структурная рекурсия не генерирует новых данных в процессе выполнения. Нам не надо думать о них вообще: правильный ли алгоритм генерации этих данных. Генеративная рекурсия, наоборот, генерирует их (новые списки с элементами больше/меньше <code>pivot</code>, сам <code>pivot</code>, итоговый список). И при генеративной рекурсии надо убеждаться в правильности решения каждой подпроблемы.</p>
+<p>Quicksort плохо работает на уже сортированных списках. Мы получаем квадратичную зависимость. merge sort дает (n log n)</p>
+<h1><a class="header" href="#mutual-recoursive-data-definitions-trees" id="mutual-recoursive-data-definitions-trees">Mutual recoursive data definitions, trees</a></h1>
+<p>Guest lecture.</p>
+<h2><a class="header" href="#data-definitions" id="data-definitions">Data definitions</a></h2>
+<p>List of numbers data definition:</p>
+<pre><code class="language-pyret">data NumList:
+    | empty
+    | link(first :: Number, r :: NumList)
+end
+</code></pre>
+<p>What is data definition for a <code>link</code>?</p>
+<p>На этой лекции разбирается определение структур данных, которые не являются линейными цепочками, как списки.</p>
+<p>Будем обсуждать деревья. В частности, family trees. Вместо <code>first</code> будет имя человека, вместо <code>rest</code> будет два биологических родителя.</p>
+<h2><a class="header" href="#just-start-coding" id="just-start-coding">Just start coding</a></h2>
+<p>Определим данные для человека:</p>
+<pre><code class="language-pyret">data Person:
+    person(name :: String, parent1 :: Person, parent2 :: Person)
+end
+</code></pre>
+<p>Сразу же напишем функцию, которая работает с этим определением. Пусть она считает количество людей в дереве, которое начинается с какого-то человека (корень).</p>
+<pre><code class="language-pyret">fun count-people(p :: Person) -&gt; Number:
+    cases(Person) p:
+        | person(name, p1, p2) =&gt;
+            1 + count-people(p1) + count-people(p2)
+    end
+end
+</code></pre>
+<p>Написали функцию, которая не работает. Потому что структура данных не завершена. А следовали бы рецепту, то на примерах сразу бы увидели, что у нас есть эти проблемы.</p>
+<h2><a class="header" href="#just-follow-the-recipe" id="just-follow-the-recipe">Just follow the recipe</a></h2>
+<p>Теперь сделаем нормально:</p>
+<pre><code class="language-pyret">data Person:
+  | Unknown
+  | person(name :: String, parent1 :: Person, parent2 :: Person)
+end
+
+# Examples
+petya = person(&quot;Petya&quot;, Unknown, Unknown)
+masha = person(&quot;Masha&quot;, Unknown, Unknown)
+ivan = person(&quot;Ivan&quot;, petya, masha)
+
+sveta = person(&quot;Sveta&quot;, Unknown, Unknown)
+vasya = person(&quot;Vasya&quot;,
+  ivan,
+  person(&quot;Sveta&quot;, Unknown, Unknown))
+
+fun count-people(p :: Person) -&gt; Number:
+    cases(Person) p:
+        | Unknown =&gt; 0
+        | person(name, p1, p2) =&gt;
+            1 + count-people(p1) + count-people(p2)
+    end
+end
+
+check:
+  count-people(vasya) is 5
+end
+</code></pre>
+<p>Похоже на список, но на каждом уровне (поколении) происходит два рекурсивных вызова.</p>
+<p>Теперь определим тип данных для генеалогического древа, где верхний узел — человек, а остальные узлы — его дети и дети его детей:</p>
+<pre><code>          John
+            |
+    -----------------
+    |   
+  Jack  ...
+    |
+   ---
+</code></pre>
+<p>Моя версия:</p>
+<pre><code class="language-pyret">data Tree:
+    | person
+    # ошибка, у Person из определения выше есть родители, а не дети
+    | tree(person :: Person, child :: Tree, child :: Tree)
+end
+</code></pre>
+<p>Из лекции, один из способов представить эти типы:</p>
+<pre><code class="language-pyret">data Person:
+  | person(name :: String, children :: ChildList)
+end
+
+data ChildList:
+  | NoChildren
+  | child(c :: Person, rest :: ChildList)
+end
+
+sveta = person(&quot;Sveta&quot;, NoChildren)
+vasya = person(&quot;Vasya&quot;, child(sveta, NoChildren))
+</code></pre>
+<p>В определении <code>Person</code> нет базового случая (когда дети пустые). Но он уже и так доступен, можно проверять список детей на пустоту.</p>
+<p>Эти определения связаны друг с другом. <code>ChildList</code> в себе использует <code>Person</code> и наоборот. Циклическая зависимость. Mutual recursion between data types.</p>
+<p>Напишем функцию, которая считает всех детей человека, включая его самого:</p>
+<pre><code class="language-pyret">fun count(t :: Person):
+  cases(Person) t:
+    | person(n, c) =&gt;
+      cases(ChildList) c:
+        | NoChildren =&gt; 0
+        | child(p, r) =&gt; 1 + count(p) # but how to handle `rest`?
+        # we need a way to handle this mutual recursion somehow...
+        # We need a new function for counting `ChildList`s.
+        # Separation of concerns.
+      end
+  end
+end
+</code></pre>
+<p>Разделим ответственность, вынесем в отдельную функцию подсчёт количества детей:</p>
+<pre><code class="language-pyret">
+data Person:
+  | person(name :: String, children :: ChildList)
+end
+
+data ChildList:
+  | NoChildren
+  | child(c :: Person, rest :: ChildList)
+end
+
+sveta = person(&quot;Sveta&quot;, NoChildren)
+masha = person(&quot;Masha&quot;, child(sveta, NoChildren))
+
+vasya = person(&quot;Vasya&quot;, child(masha, NoChildren))
+
+fun count(t :: Person):
+  cases(Person) t:
+    | person(n, cs) =&gt;
+      1 + countList(cs) # теперь за подсчёт детей отвечает `countList`
+  end
+end
+
+fun countList(cs :: ChildList):
+  cases(ChildList) cs:
+    | NoChildren =&gt; 0
+    | child(f, r) =&gt;
+      1 + countList(r) # something suspicious
+  end
+end
+
+check:
+  count(vasya) is 3
+  count(sveta) is 1
+end
+</code></pre>
+<p>Вроде работает. Но если у ребёнка будет ребёнок, то он не посчитается. Мы имеем взаимно-рекурсивные определения данных, но в функции <code>countList</code> это не отражено! Мы не вызываем <code>count</code> из <code>countList</code>, а надо её вызывать на отдельном человеке, чтобы посчитать и его детей.</p>
+<p>Так надо:</p>
+<pre><code class="language-pyret">fun countList(cs :: ChildList):
+  cases(ChildList) cs:
+    | NoChildren =&gt; 0
+    | child(f, r) =&gt;
+      count(f) + countList(r)
+  end
+end
+</code></pre>
+<p>:::
+При обработке взаимно рекурсивных типов данных соответствующие функции также должны иметь взаимно рекурсивные вызовы.
+:::</p>
+<p>Итог:</p>
+<pre><code class="language-pyret">
+data Person:
+  | person(name :: String, children :: ChildList)
+end
+
+data ChildList:
+  | NoChildren
+  | child(c :: Person, rest :: ChildList)
+end
+
+sveta = person(&quot;Sveta&quot;, NoChildren)
+masha = person(&quot;Masha&quot;, child(sveta, NoChildren))
+
+vasya = person(&quot;Vasya&quot;, child(masha, NoChildren))
+
+fun count(t :: Person):
+  cases(Person) t:
+    | person(n, cs) =&gt;
+      1 + countList(cs)
+  end
+end
+
+fun countList(cs :: ChildList):
+  cases(ChildList) cs:
+    | NoChildren =&gt; 0
+    | child(f, r) =&gt;
+      count(f) + countList(r)
+  end
+end
+
+check:
+  count(vasya) is 3
+  count(sveta) is 1
+end
+</code></pre>
+<h1><a class="header" href="#sets" id="sets">Sets</a></h1>
+<p>Set в Pyret:</p>
+<pre><code class="language-pyret">[set: 1, 2, 3]
+</code></pre>
+<p>Два существенных отличия множеств (sets) от списков:</p>
+<ul>
+<li>в списке элементы расположены в определённом порядке, в сете — нет;</li>
+<li>в сете не может быть повторений: <code>[set: 1, 2, 3]</code> такой же, как <code>[set: 1, 2, 3, 1]</code>.</li>
+</ul>
+<p>Шрирам про то, что в математике всё просто, а в программировании не очень, но оно тоже проникает в математику и вообще везде:</p>
+<blockquote>
+<p>Software eats everything and makes everybody's life worse. No math is gonna suck as much as software pretty soon.</p>
+</blockquote>
+<p>Примеры коллекций данных, где порядок не важен: список покупок (не надо покупать молоко 2 раза, надо подойти и купить его 1 раз сколько надо).</p>
+<p>Множества гораздо более фундаментальные, чем списки или массивы.</p>
+<p>Примеры операций над множествами:</p>
+<ul>
+<li>insert :: <code>T, Set&lt;T&gt; -&gt; Set&lt;T&gt;</code></li>
+<li>union :: <code>Set&lt;T&gt;, Set&lt;T&gt; -&gt; Set&lt;T&gt;</code></li>
+<li>is-in :: <code>T, Set&lt;T&gt; -&gt; Boolean</code></li>
+<li>size :: <code>Set&lt;T&gt; -&gt; Number</code></li>
+<li>...</li>
+</ul>
+<p>Задача 1 в классе: implement sets using lists на примере функции <code>size</code>.</p>
+<p>size может выдавать размер списка, который может быть уже без повторений:</p>
+<pre><code class="language-pyret">fun size1(l):
+    l.length()
+end
+</code></pre>
+<p>size может принимать любой список, удалять из него повторения и уже потом возвращать результат:</p>
+<pre><code class="language-pyret">fun size2(l):
+    unique(l).length() # weed out non unique elements before counting
+end
+</code></pre>
+<p>Задача 2: напишите функцию insert, которая работает также с сэтами через списки.</p>
+<pre><code class="language-pyret"># считаем, что size будет отвечать за повторения
+insert = link # по сути добавляем в начало списка элемент
+
+# вставляем только если такого элемента в списке ещё нет
+fun insert(el, l):
+    if l.member(el):
+        l
+    else:
+        link(el, l)
+    end
+end
+</code></pre>
+<p>Нужно принимать решения о структурах данных (типах) и функциях, которые их используют. Это иллюстрация того, с чем всегда приходится сталкиваться.</p>
+<h2><a class="header" href="#representation-invariant" id="representation-invariant">Representation Invariant</a></h2>
+<p>Invariant is a thing that is always true.</p>
+<ul>
+<li>size1 полагается на инвариант в структуре данных <code>Set</code>. <code>insert</code> и <code>union</code>, формирующие нове сеты, должны выполнять проверку и возвращать только списки с уникальными элементами.</li>
+<li><code>size2</code> не полагается на то, что список уникальный. Поэтому <code>insert</code> и <code>union</code> могут ничего не проверять, а просто возвращать список с добавленным элементом или объединённый список. Здесь нет инварианта.</li>
+</ul>
+<p>Эти подходы имеют разные big-O complexity. Продолжим рассматривать <code>insert</code> и <code>size</code>.</p>
+<p>TODO: прочитать growing complexity, разобрать big-o и пересмотреть.</p>
+<h1><a class="header" href="#sets-ii-binary-tree-binary-search-tree-sets-and-log-n-complexity" id="sets-ii-binary-tree-binary-search-tree-sets-and-log-n-complexity">Sets II: Binary Tree, Binary Search Tree, Sets and (log n) complexity</a></h1>
+<p>Видео: <code>09_Wed_9_26_18.ts</code></p>
+<p>На прошлом занятии разбирали 2 реализации сетов через списки с разной эффективностью функций <code>insert</code> и <code>size</code>:</p>
+<ul>
+<li>linear/linear</li>
+<li>constant/quadratic</li>
+</ul>
+<p>Причём оба эти варианта типа Set реализованы через List и каждый под капотом имеет свою зависимость от этой реализации. Каждый вариант эффективен в зависимости от конкретной задачи. <code>linear/linear</code> больше подойдёт для повседневного использования на небольших множествах. <code>constant/quadratic</code> будет более полезной, когда нужно вставлять быстро, а узнавать размер очень-очень редко (например, логи писать).</p>
+<p>Представление данных (data representation) может быть разным и лучше/хуже подходить для реализации конкретных задач. И даже нормально изменять это представление для разных типов обработки (разных вычислительных задач).</p>
+<p>Например, каждый раз, когда мой лог превышает определённый размер, я буду выполнять чистку данных и перегонять её из raw data в реляционную модель из MongoDB в PostgreSQL. Этот размер (предел, порог, threshold) можно вычислить экспериментальным путём, вычислив допустимую эффективность. Например, 100 000 записей мне ок обработать квадратичным алгоритмом, а миллион уже нет. Поэтому буду дробить по сто тысяч.</p>
+<p>Шрирам советует читать блоги. Там можно найти примеры применения алгоритмов из книжек в реальной разработке и вообще много чему научиться.</p>
+<blockquote>
+<p>Логарифмическая зависимость лучше линейной, она каждый раз разбивает проблему пополам + константа.</p>
+</blockquote>
+<blockquote>
+<p>Intuition: Logarithm of a number is essentially how many digits number has.</p>
+</blockquote>
+<p>См. дополнительно про логарифм:</p>
+<ul>
+<li>https://www.quora.com/Is-there-a-trick-to-find-how-many-digits-a-certain-exponent-will-yield</li>
+<li>https://cnx.org/contents/ywnwlJeA@1.20:njDsQlIO@7/Essential-Mathematics </li>
+<li>https://en.wikipedia.org/wiki/Logarithm</li>
+<li>https://www.reed.edu/academic_support/pdfs/qskills/logarithms.pdf</li>
+</ul>
+<p>Если я умножу данные на 10, то мой логарифм увеличится на 1. На 100 — на 2. На миллион — на 6. Логарифмические алгоритмы очень эффективны.</p>
+<p>Если пришло в миллиона раз больше посетителей, то достаточно оплатить 6 дополнительных серверов на Амазоне.</p>
+<blockquote>
+<p>Сет может быть более эффективным, чем log n.</p>
+</blockquote>
+<p>Если хранить данные в отсортированном виде, то можно спокойно опускать часть данных. Например, если нужно вставить число в упорядоченное множество чисел. </p>
+<p>Если мы работаем не с числами, то нужно каким-то образом свести данные к числам.</p>
+<h2><a class="header" href="#gedel-numbering" id="gedel-numbering">Gedel Numbering</a></h2>
+<blockquote>
+<p>Как перевести строку в число?</p>
+</blockquote>
+<p>Гёдель придумал решение: мы можем использовать простые числа как базу, а код букв как степень. Каждое число имеет одно произведение с простыми числами.</p>
+<p><img src="09/./img/gedel_nums.png" alt="" /></p>
+<p>Здесь <code>c1</code>, <code>c2</code> и <code>c3</code> — числовое представление символов в строке.</p>
+<p>Это сложно вычислять, но это отправная точка: такое решение может существовать. Каждый объект в памяти ЭВМ имеет свой адрес и это его числовое представление, на основе адреса также можно упорядочивать значения.</p>
+<h2><a class="header" href="#binary-trees" id="binary-trees">Binary Trees</a></h2>
+<p>Все левые значения меньше, чем правые. Меньше в каком-то искусственном представлении, которое нам удобно. Если значение равное корню, то оно и есть корень:</p>
+<p><a href="https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVEI7XG4gICAgQSgoVnJvb3QpKS0tPkIoKFZsZWZ0KSlcbiAgICBBLS0-QygoVnJpZ2h0KSk7XG4gICAgQi0tPkUoKFZsZWZ0KSlcbiAgICBCLS0-RigoVnJpZ2h0KSlcbiAgICBDLS0-SCgoVmxlZnQpKVxuICAgIEMtLT5JKChWcmlnaHQpKVxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0"><img src="https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVEI7XG4gICAgQSgoVnJvb3QpKS0tPkIoKFZsZWZ0KSlcbiAgICBBLS0-QygoVnJpZ2h0KSk7XG4gICAgQi0tPkUoKFZsZWZ0KSlcbiAgICBCLS0-RigoVnJpZ2h0KSlcbiAgICBDLS0-SCgoVmxlZnQpKVxuICAgIEMtLT5JKChWcmlnaHQpKVxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0" alt="" /></a></p>
+<p>Data representation:</p>
+<pre><code class="language-pyret">data BinTree:
+  | leaf
+  | node(value :: Number, left :: BinTree, right :: BinTree)
+end
+</code></pre>
+<p>Одна из проверок на состоятельность выбранной модели данных — можно ли с помощью этой структуры представить все возможные варианты? В данном случае деревья разных размеров: пустое, дерево с одним элементом, с сотней элементов...</p>
+<p>Тип данных «бинарное дерево» никак не ограничивает то, что именно должно лежать в левом и правом потомке. Binary Search Tree уже ограничивает: левое значение должно быть меньше корня, правое — больше. Проверять можно через <code>%is-bst</code>, выполняя рекурсивный обход и убеждаясь, что все значения слева меньше, чем предыдущие корни и что значения справа больше. Дорогая операция, для тестов ок, для продакшена излишне.</p>
+<p><strong>См. следующую лекцию, BST не всегда даёт логарифмическую зависимость</strong>, нужно его сбалансировать.</p>
+<h1><a class="header" href="#balancing-bsts" id="balancing-bsts">Balancing BSTs</a></h1>
+<p>Видео: <code>10_Fri_9_28_18.ts</code></p>
+<p>На прошлой лекции мы рассмотрели BT и BST, и хотели логарифмическую зависимость при работе со множествами. <code>log n</code> или:</p>
+<p>$$
+T(k) = T(k/2) + c
+$$</p>
+<p>Худший случай для работы с BST — это одна ветка (когда получается простой список, BST degenerates to give a list). Значения только левые или только правые (сортированные по возрастанию или убыванию):</p>
+<p><a href="https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVEI7XG4gICAgUm9vdCgoNSkpLS0-TDEoKDQpKVxuICAgIFJvb3QtLT5SMSgoRW1wdHkpKTtcbiAgICBMMS0tPkwyKCgzKSlcbiAgICBMMS0tPlIxMigoRW1wdHkpKVxuICAgIEwyLS0-TDMoKC4uLikpXG4gICAgTDItLT5SMygoRW1wdHkpKVxuICAgIFxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0"><img src="https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVEI7XG4gICAgUm9vdCgoNSkpLS0-TDEoKDQpKVxuICAgIFJvb3QtLT5SMSgoRW1wdHkpKTtcbiAgICBMMS0tPkwyKCgzKSlcbiAgICBMMS0tPlIxMigoRW1wdHkpKVxuICAgIEwyLS0-TDMoKC4uLikpXG4gICAgTDItLT5SMygoRW1wdHkpKVxuICAgIFxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0" alt="" /></a></p>
+<p>И в этом случае мы не получим логарифмическую зависимость.</p>
+<blockquote>
+<p>Last class is basicly a giant piece of trolling.</p>
+</blockquote>
+<p>Нам нужно Balanced Binary Search Tree.</p>
+<p>BBST ← BST ← BT, мы можем использовать функционал для BT на BST и на BBST. Но <code>insert</code> для BBST, чтобы он был оптимальным, должен быть другим.</p>
+<p>При работе с деревьями мы обращаем внимание на следующие параметры:</p>
+<ul>
+<li>размер дерева (количество узлов в дереве)</li>
+<li>высота дерева (какая ветка дерева содержит больше всего узлов)</li>
+</ul>
+<p><code>k</code> может быть размером или высотой. Более наглядно рассматривать высоту, будем рассматривать её.</p>
+<p>Высоту BT может быть:</p>
+<ul>
+<li>1 если нет дочерних веток;</li>
+<li>или как <code>max(left, right + 1)</code>, если ветки есть.</li>
+</ul>
+<p>Отсюда можно дать определение (не до конца точное) сбалансированному дереву: его левые и правые ветки <em>на всех уровнях</em> имеют одинаковую высоту либо отличаются на 1.</p>
+<p>Главная наша задача — разобраться с <code>insert</code>. Функция должна принимать BBST и возвращать BBST:</p>
+<pre><code class="language-pyret">insert(tree :: BBST, el) -&gt; BBST:
+</code></pre>
+<p>Можно взять старый <code>insert</code>, который возвращает <em>почти</em> BBST и пропустить то, что он возвращает через балансировку:</p>
+<pre><code class="language-pyret">old_insert(tree :: BBST, el) -&gt; ~BBST:
+balance(olomst_bbst :: ~BBST) -&gt; BBST
+</code></pre>
+<p>Таким образом композиция <code>old_insert</code> и <code>balance</code> даст нам желаемую функцию <code>insert</code>, которая принимает сбалансированное дерево поиска и возвращает такое же (сохраняет инвариант).</p>
+<p><code>~BBST</code> тип, это:</p>
+<ul>
+<li>BST;</li>
+<li>либо BBST, в котором расхождение может быть не на 1, а на 2.</li>
+</ul>
+<p>Если вызывать <code>balance</code> после каждой вставки и чинить <code>~BBST</code>, чтобы получалось <code>BBST</code>, то наша задача будет решена:</p>
+<pre><code class="language-pyret"># alias for almost balanced binary search tree
+type ~BBST = BBST%(is-off-by-2)
+
+balance(~BBST) -&gt; BBST
+</code></pre>
+<p>Рассмотрим вставку в левую ветку, сбалансированная высота которой — <code>k</code> и допустимая высота: <code>k-1</code> и <code>k+1</code>. Случаи, когда высота равна <code>k</code> или <code>k-1</code> нам подходят, мы просто можем вставить. Если высота <code>k+1</code>, то при вставке дерево получится не сбалансированным и этот случай надо обрабатывать.</p>
+<h1><a class="header" href="#infinity-i-lazy-sequences-infinitely-long-data" id="infinity-i-lazy-sequences-infinitely-long-data">Infinity I: Lazy Sequences (infinitely long data)</a></h1>
+<p>Video: <code>11_Mon_10_01_18.ts</code>.</p>
+<p>Функции в CS (например, <code>y(x) = x + 5</code>):</p>
+<ul>
+<li>Позволяют создавать параметризированные выражения.</li>
+<li>Позволяют задерживать вычисление тела до тех пор, пока не будет предоставлен параметр <code>x</code>. Задержать вычисление до тех пор, пока мы не захотим его выполнить.</li>
+</ul>
+<p>Orthogonal means completely independent.</p>
+<p>Функция может быть выполнена сразу же. Так делаются байндинги. Например, <code>let</code>-expression фактически выполняется так:</p>
+<pre><code class="language-lisp">(let ([x 3])
+  (+ x x))
+
+;; Under the hood `let` works like this
+((λ (x)
+   (+ x x)) 3)
+</code></pre>
+<p>Задача <code>let</code> — дать имя значению <code>3</code>, выполнить выражение с этим именем и исчезнуть.</p>
+<p>В такого рода функциях мы не используем возможность задержать вычисление.</p>
+<p>А чем может быть полезна функция без параметров?</p>
+<p>Дальше разговор пойдёт про откладывание вычислений. Например, для формирования больших деревьев, где нужно откладывать формирование всего дерева.</p>
+<p>Recursive binding in Pyret:</p>
+<pre><code class="language-pyret">rec ones = link(1, ones)
+</code></pre>
+<p>Pyret syntax for a lambda:</p>
+<pre><code class="language-pyret"># Two equal constructions:
+
+{(x): x + 3}(3) # shorter
+
+(lam(x): x + 3 end)(3)
+</code></pre>
+<p>Пример потока (stream, lazy list):</p>
+<pre><code class="language-pyret">data Lz&lt;T&gt;:
+  | lzlink(e :: T, r :: ( -&gt; Lz&lt;T&gt;))
+end
+
+fun fst&lt;T&gt;(s :: Lz&lt;T&gt;) -&gt; T:
+  s.e
+end
+
+fun rst&lt;T&gt;(s :: Lz&lt;T&gt;) -&gt; Lz&lt;T&gt;:
+  s.r()
+end
+
+fun take&lt;T&gt;(s :: Lz&lt;T&gt;, n :: Number) -&gt; List&lt;T&gt;:
+  if n == 0:
+    empty
+  else:
+    link(fst(s), take(rst(s), n - 1))
+  end
+end
+
+
+# Stream of ones: 1, 1, 1, ...
+rec ones = 
+  lzlink(1,
+    {(): ones})
+
+fun natsfrom(n :: Number):
+  doc: &quot;Returns a stream of natural numbers.&quot;
+  lzlink(n, {(): natsfrom(n + 1)})
+end
+
+# Stream of natural numbers from 0: 0, 1, 2, ...
+nats = natsfrom(0)
+
+check:
+  take(ones, 5) is [list: 1, 1, 1, 1, 1]
+  take(nats, 5) is [list: 0, 1, 2, 3, 4]
+end
+</code></pre>
+<p>Lists are finite, streams are infinite.</p>
+<p>Thunk is a function with no parameters, like lambda in stream above. Thunk is a lambda with no arguments.</p>
+<p>Индукция и программирование по индукции не работает на потоках, потому что нет базового случая. Тут работает коиндукция.</p>
+<p>Примеры мап-функций для одного и двух потоков:</p>
+<pre><code class="language-pyret">fun lzmap&lt;A, B&gt;(
+    fn :: (A -&gt; B),
+    s :: Lz&lt;A&gt;) -&gt; Lz&lt;B&gt;:
+  lzlink(
+    fn(fst(s)),
+    {(): lzmap(fn, rst(s))})
+end
+
+fun lzmap2&lt;A, B, C&gt;(
+    fn:: (A, B -&gt; C),
+    s1 :: Lz&lt;A&gt;,
+    s2 :: Lz&lt;B&gt;) -&gt; Lz&lt;C&gt;:
+  lzlink(
+    fn(fst(s1), fst(s2)),
+    {(): lzmap2(fn, rst(s1), rst(s2))})
+end
+
+check:
+  take(lzmap({(n): n + 111}, nats), 5) is [list: 111, 112, 113, 114, 115]
+  take(lzmap((_ - 1), nats), 5) is [list: -1, 0, 1, 2, 3]
+end
+</code></pre>
+<p>Базового случая нет, но анонимная функция (thunk) предотвращает бесконечную рекурсию.</p>
+<p>С помощью <code>lzmap2</code> можно сгенерировать бесконечную последовательность чисел Фибоначчи:</p>
+<pre><code class="language-pyret">rec fib-seq =
+  lzlink(0,
+    {(): lzlink(1,
+        {(): lzmap2({(
+                a :: Number,
+                b :: Number):
+              a + b},
+            fib-seq,
+            rst(fib-seq))})})
+
+# 0 1 1 2 3 5 ...
+#   0 1 1 2 3 ...
+#   1 2 3 5 8 ...
+
+check:
+  take(fib-seq, 10) is [list: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+end
+</code></pre>
+<h2><a class="header" href="#Материлы" id="Материлы">Материлы</a></h2>
+<ul>
+<li><a href="https://papl.cs.brown.edu/2019/func-as-data.html">13. Functions as Data</a>, PAPL.</li>
+</ul>
+<h1><a class="header" href="#infinity-ii-animations-infinitely-long-programs-part-1" id="infinity-ii-animations-infinitely-long-programs-part-1">Infinity II: Animations (infinitely long programs, part 1)</a></h1>
+<p>Video: <code>12_Wed_10_3_18.ts</code>.</p>
+<p>Термины Model (или State) — основа программы/системы. Её самые главные данные.</p>
+<p>Модель отделена от представления, потому что так гораздо проще:</p>
+<ul>
+<li>меняющиеся данные вынесены отдельно;</li>
+<li>легко делать тестирование, что очень сложно, если бы просто менялись картинки (функция не Model-&gt;Img, а Img-&gt;Img);</li>
+<li>дебажить проще: логика в модели дебажится отдельно, рендеринг — отдельно.</li>
+</ul>
+<p>Это MVC, роль контроллера выполняет встроенная функция <code>interact</code>.</p>
+<p>Пример интерактивной программы:</p>
+<pre><code class="language-pyret">include reactors
+include image
+
+UFO = image-url(&quot;https://cs.brown.edu/~sk/tmp/ufo.png&quot;)
+BG = rectangle(400, 400, &quot;solid&quot;, &quot;gray&quot;)
+INIT = { x: 10, y: 10 }
+
+type Pos = { x :: Number, y :: Number }
+
+fun update(p :: Pos) -&gt; Pos:
+  { x: p.x + 3,
+    y: p.y + 5 }
+where:
+  update({x: 2, y: 3}) is {x: 5, y: 8}
+end
+
+fun drawer(p :: Pos) -&gt; Image:
+  place-image(UFO, p.x, p.y, BG)
+end
+
+fun stopper(p :: Pos) -&gt; Boolean:
+  (p.x &lt; 0) or (p.x &gt; 200) or (p.y &lt; 0) or (p.y &gt; 300)
+end
+
+fun typer(p :: Pos, k :: String) -&gt; Pos:
+  ask:
+    | k == &quot;up&quot; then: {x: p.x, y: p.y - 10}
+    | k == &quot;down&quot; then: {x: p.x, y: p.y + 10}
+    | otherwise: p
+  end
+end
+
+r = reactor:
+  init: INIT,
+  on-tick: update,
+  to-draw: drawer,
+  stop-when: stopper,
+  on-key: typer
+end
+
+# interact(r)
+# interact-trace(r)
+</code></pre>
+<h1><a class="header" href="#infinity-iii-modeling-state-pong-game-infinitely-long-programs-part-2" id="infinity-iii-modeling-state-pong-game-infinitely-long-programs-part-2">Infinity III: Modeling State, Pong Game (infinitely long programs, part 2)</a></h1>
+<p>Video: <code>13_Fri_10_05_18.ts</code>.</p>
+<p>PID-controller (Proportional Integral Differential controller):</p>
+<ul>
+<li>Cruise-control;</li>
+<li>Thermostat;</li>
+<li>Boat steering system;</li>
+<li>...</li>
+</ul>
+<h2><a class="header" href="#reactive-systems" id="reactive-systems">Reactive Systems</a></h2>
+<p>Где-то с 40-й минуты начинается. Очень важно и интересно.</p>
+<p>Примеры реактивных систем:</p>
+<ul>
+<li>Browser</li>
+<li>Phone</li>
+<li>Thermostat</li>
+<li>Cruise-control</li>
+<li>...</li>
+</ul>
+<p>Внешний мир влияет на систему: события в браузере, температура меняется для термостата и пр.</p>
+<p>Система имеет Event Loop, который контролирует события внешнего мира:</p>
+<ul>
+<li>Tick Event → on-tick → to-draw</li>
+<li>Click Event → on-click → stop</li>
+<li>KeyPress k Event → on-key-press(k) → move-up</li>
+<li>...</li>
+</ul>
+<p>После обработки события результат отсылается обратно во внешний мир.</p>
+<p>Наши программы — это в основном ответ на действия из внешней среды (to-draw, move-up и пр.)</p>
+<p>Model contains the variant parts of the program.</p>
+<p>All the interesting systems are infinite loops: OS, elevators, Car computers etc. World is full of infinite loops and the challenge is to keep them working infinitely long.</p>
+<h1><a class="header" href="#docdiff" id="docdiff">DocDiff</a></h1>
+<p><a href="https://cs.brown.edu/courses/cs019/2018/docdiffdocdiff.html">Original text</a></p>
+<h2><a class="header" href="#introduction" id="introduction">Introduction</a></h2>
+<p>Consider the problem of comparing two text documents. Why might you want to do this? Perhaps you want to check for plagiarism, search for articles similar to a particular one you’re studying, or have uncovered a new manuscript and want to know whether it’s a legitimate Shakespeare or a fake. All these require being able to determine the similarity between documents. In this assignment we will define a document as list of strings, with each string representing a word. Here’s an example of a document:</p>
+<pre><code class="language-pyret">[list: &quot;The&quot;, &quot;quick&quot;, &quot;brown&quot;, &quot;fox&quot;, &quot;jumps&quot;]
+</code></pre>
+<p>In order to compute the similarity between two documents, we associate each document with a mathematical vector, which here we will represent using a list of numbers. The indices of the vector correspond to words that are found in either document. The value at each index is how many times the corresponding word occurs in the document.</p>
+<blockquote>
+<p>This is called the bag of words model. It’s a “bag” because, like a set, order doesn’t matter, but the count does.</p>
+</blockquote>
+<p>For example, the documents <code>[list: &quot;a&quot;, &quot;b&quot;, &quot;c&quot;]</code> and <code>[list: &quot;d&quot;, &quot;d&quot;, &quot;d&quot;, &quot;b&quot;]</code> would result in vectors of length <code>4</code>, accounting for all unique words (<code>&quot;a&quot;</code>, <code>&quot;b&quot;</code>, <code>&quot;c&quot;</code>, and <code>&quot;d&quot;</code>):</p>
+<pre><code>                           &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot;
+[list: &quot;a&quot;, &quot;b&quot;, &quot;c&quot;]       1   1   1   0
+[list: &quot;d&quot;, &quot;d&quot;, &quot;d&quot;, &quot;b&quot;]  0   1   0   3
+</code></pre>
+<p>Therefore, the two documents will respectively have the representations <code>[list: 1, 1, 1, 0]</code> and <code>[list: 0, 1, 0, 3]</code>.</p>
+<p>We assume that two words are the same if they have the same characters in the same order, ignoring upper- and lower-case (Pyret has functions to upper- or lower-case a string, and for sorting; you can look up these functions in the <a href="http://www.pyret.org/docs/latest/strings.html">string</a> and <a href="https://www.pyret.org/docs/latest/lists.html">list</a> libraries).</p>
+<p>We define the overlap between two documents, represented this way, to be proportional (\( \propto \)) to the <a href="https://en.wikipedia.org/wiki/Dot_product">dot product</a> of these two document vectors:</p>
+<p>\[ overlap(\vec{d_1}, \vec{d_2}) \propto \vec{d_1} \cdot \vec{d_2} \]</p>
+<p>To obtain a formula, we normalize this dot-product. We will choose a simple method, which is to divide by the squared magnitude of the larger vector:</p>
+<p>\[ overlap(\vec{d_1}, \vec{d_2}) = \frac{\vec{d_1} \cdot \vec{d_2}}{max(|\vec{d_1}|^2,|\vec{d_2}|^2)} \]</p>
+<p>where the magnitude of a vector \( \vec{x} \), denoted as \( |\vec{x}| \), is given by \(sqrt(\vec{x} \cdot \vec{x})\). Observe that this means every document will have an overlap of 1 with itself, and any two documents that have no words in common will have overlaps of 0 with each other.</p>
+<h2><a class="header" href="#assignment" id="assignment">Assignment</a></h2>
+<p>Define a function</p>
+<pre><code class="language-pyret">fun overlap(doc1 :: List&lt;String&gt;, doc2 :: List&lt;String&gt;) -&gt; Number:
+    ...
+end
+</code></pre>
+<p>where <code>doc1</code> and <code>doc2</code> are lists of strings and <code>overlap</code> returns a number. This function computes the overlap of two <em>non-empty</em> documents, defined by the formula above.
+Note that we are not asking you to consider efficiency of implementation.</p>
+<h2><a class="header" href="#language-use" id="language-use">Language Use</a></h2>
+<p>You may not use built-in sets; everything in the list library is permitted.</p>
+<h2><a class="header" href="#background" id="background">Background</a></h2>
+<p>You will find <a href="http://papl.cs.brown.edu/2018/p4rs.html">this chapter</a> useful in learning to convert from Racket to Pyret, and <a href="http://papl.cs.brown.edu/2018/processing-lists.html">this one</a> useful for learning more about lists in Pyret.</p>
+<h2><a class="header" href="#handing-in" id="handing-in">Handing In</a></h2>
+<p>You will submit two separate files, named <code>docdiff-code.arr</code> and <code>docdiff-tests.arr</code>.</p>
+<h1><a class="header" href="#nile" id="nile">Nile</a></h1>
+<p><a href="https://cs.brown.edu/courses/cs019/2018/nilenile.html">Original text</a></p>
+<h2><a class="header" href="#1-introduction" id="1-introduction">1. Introduction</a></h2>
+<p>You are creating Nile.com, which you hope will be the next big thing in online bookstores. You know that you can save money by anticipating what books people will buy; you will pass these savings on to your users by offering a discount if they buy books that Nile recommends.</p>
+<blockquote>
+<p>This assignment is meant to introduce you to the concept of <a href="https://en.wikipedia.org/wiki/Collaborative_filtering">collaborative filtering</a>.</p>
+</blockquote>
+<p>To do this, you offer an incentive for people to upload their lists of recommended books. From their lists, you can establish suggested pairs. A pair of books is a suggested pair if both books appear on one person’s recommendation list. Of course, some suggested pairs are more popular than others. Also, any given book is paired with some books much more frequently than with others.</p>
+<h2><a class="header" href="#2-warning" id="2-warning">2. Warning</a></h2>
+<p>Past students have found this assignment quite difficult relative to when it appears in the course. Think hard about decomposing the problem into simpler pieces rather than trying to solve it entirely in one step. Give yourself enough time!</p>
+<h2><a class="header" href="#3-assignment" id="3-assignment">3. Assignment</a></h2>
+<p>You need to organize the list of recommended books to support two tasks:</p>
+<ul>
+<li>recommend a Book;</li>
+<li>recommend a Pair of Books.</li>
+</ul>
+<h3><a class="header" href="#31-recommend-a-book" id="31-recommend-a-book">3.1 Recommend a Book</a></h3>
+<p>When someone buys a book, you want to be able to suggest a second book to accompany it. Specifically, you should provide the book it is most frequently paired with in the recommendation lists, along with a count of how frequent this is. Because there may be more than one book with that count, you should return a list of books (even if there is only one) as well as the count. This will be in the form of a Recommendation:</p>
+<pre><code class="language-pyret">data Recommendation:
+    | recommendation(count :: Number, names :: List&lt;String&gt;)
+end
+</code></pre>
+<h3><a class="header" href="#32-recommend-a-pair-of-books" id="32-recommend-a-pair-of-books">3.2 Recommend a Pair of Books</a></h3>
+<p>Sometimes, an indecisive user asks for a book recommendation. Nile offers not one recommendation at a time, but pairs of them! Wow! To support this, you must be able to identify the most popular pairs of suggested books. Return the most popular pair, with a count of how often it occurs. Again, because there may be multiple pairs with the same count, you should return a list of pairs (even if there is only one).</p>
+<p>A list of recommended books is represented as a File:</p>
+<pre><code class="language-pyret">data File:
+    | file(name :: String, content :: String)
+end
+</code></pre>
+<p>Each file contains a single input list, with single book descriptions on each line. That is, book descriptions will be separated by <code>&quot;\n&quot;</code>. Each book has a unique and unambiguous description; that is, if two lines in two different input lists are identical, they refer to the same book. Otherwise they refer to different books. Input lists will always contain at least two books, and they will never contain duplicates. For example, an input file could be</p>
+<pre><code class="language-pyret">file(&quot;vty.txt&quot;, &quot;Crime and Punishment\nHeaps are Lame\nLord of the Flies&quot;)
+</code></pre>
+<h3><a class="header" href="#33-functions" id="33-functions">3.3 Functions</a></h3>
+<p>Define the following functions:</p>
+<pre><code class="language-pyret">fun recommend(title :: String, book-records :: List&lt;File&gt;) -&gt; Recommendation
+</code></pre>
+<p><code>recommend</code> takes a book title and a list of <code>File</code>s and produces a <code>Recommendation</code>. The <code>Recommendation</code>’s names is a list of the titles of the books that are most often paired with the input book. The <code>Recommendation</code>’s count is the number of times the books in the names list are each paired with the input book. When no pairing can be found, recommend should return <code>recommendation(0,[list: ])</code>.</p>
+<pre><code class="language-pyret">fun popular-pairs(records :: List&lt;File&gt;) -&gt; Recommendation
+</code></pre>
+<p><code>popular-pairs</code> takes a list of <code>File</code>s and produces a <code>Recommendation</code>. The <code>Recommendation</code>’s names is a list of <code>String</code>s each of which represent a pair of books. Each of these <code>String</code>s contains two titles separated by a <code>&quot;+&quot;</code>, for example <code>&quot;book1+book2&quot;</code>. Each most popular pair of books should appear exactly once and order is irrelevant. The <code>Recommendation</code>’s count is the number of times each pair occurred together in a file. When no pairing can be found, popular-pairs should return <code>recommendation(0, [list: ])</code>.</p>
+<h3><a class="header" href="#34-built-ins" id="34-built-ins">3.4 Built-Ins</a></h3>
+<p>For this assignment, you will need to write your own version of any built-in functions that you choose to use, other than the higher-order functions <code>map</code>, <code>filter</code>, and <code>fold</code>.</p>
+<blockquote>
+<p>This is to force you to practice: you should be getting able to write such functions without much difficulty. Also, studies show that <em>drill</em> is a really good way to get better at programming.</p>
+</blockquote>
+<p>For strings, you may only use <code>string-to-code-point</code>, <code>string-from-code-point</code>, <code>string-to-code-points</code>, and <code>string-from-code-points</code>. Built-in string functions can be recreated by operating on lists of code points. You are, however, welcome to use operators on <code>String</code>s (<code>+</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>==</code>, etc.).</p>
+<p>For lists, you may use <code>list.first</code>, <code>list.rest</code>, <code>map</code>, <code>filter</code>, and <code>fold</code>. You may not use any built-in functions such as <code>length</code>, <code>member</code>, <code>get</code>, <code>split-at</code>, etc. You should be able to write your own versions of these functions using link and empty.</p>
+<p>When writing your own version of built-in functions, we do expect to see all the steps of design recipe, including a reasonable sample of examples (but not a detailed test suite).</p>
+<h2><a class="header" href="#comments" id="comments">Comments</a></h2>
+<p>Because we have not yet discussed any efficiency measures in class, you are not asked to consider the efficiency of your implementation.</p>
+<p>As a reminder, you may not use a late pass for this assignment.</p>
+<h2><a class="header" href="#handing-in-1" id="handing-in-1">Handing In</a></h2>
+<p>You will submit two separate files, <code>nile-code.arr</code> and <code>nile-tests.arr</code>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+        
+        
+
+    </body>
+</html>

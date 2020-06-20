@@ -1,0 +1,341 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Infinity I: Lazy Sequences - Accelerated Introduction to Computer Science</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">О курсе</a></li><li class="chapter-item expanded "><a href="../01/index.html"><strong aria-hidden="true">1.</strong> Введение в Pyret и курс</a></li><li class="chapter-item expanded "><a href="../02/index.html"><strong aria-hidden="true">2.</strong> Rainfall Problem и ФП</a></li><li class="chapter-item expanded "><a href="../03/index.html"><strong aria-hidden="true">3.</strong> Списки, сортировка, контракты</a></li><li class="chapter-item expanded "><a href="../04/index.html"><strong aria-hidden="true">4.</strong> Measuring the performance of programs</a></li><li class="chapter-item expanded "><a href="../05/index.html"><strong aria-hidden="true">5.</strong> Big-O for sorting</a></li><li class="chapter-item expanded "><a href="../06/index.html"><strong aria-hidden="true">6.</strong> Оптимизация, структурная и генеративная рекурсии</a></li><li class="chapter-item expanded "><a href="../07/index.html"><strong aria-hidden="true">7.</strong> Mutual recoursive data definitions, trees</a></li><li class="chapter-item expanded "><a href="../08/index.html"><strong aria-hidden="true">8.</strong> Sets I</a></li><li class="chapter-item expanded "><a href="../09/index.html"><strong aria-hidden="true">9.</strong> Sets II: Binary Tree, Binary Search Tree, Sets and (log n) complexity</a></li><li class="chapter-item expanded "><a href="../10/index.html"><strong aria-hidden="true">10.</strong> Balancing BSTs</a></li><li class="chapter-item expanded "><a href="../11/index.html" class="active"><strong aria-hidden="true">11.</strong> Infinity I: Lazy Sequences</a></li><li class="chapter-item expanded "><a href="../12/index.html"><strong aria-hidden="true">12.</strong> Infinity II</a></li><li class="chapter-item expanded "><a href="../13/index.html"><strong aria-hidden="true">13.</strong> Modeling State, Pong Game</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../homeworks/01_docdiff.html">DocDiff</a></li><li class="chapter-item expanded affix "><a href="../homeworks/02_nile.html">Nile</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Accelerated Introduction to Computer Science</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#infinity-i-lazy-sequences-infinitely-long-data" id="infinity-i-lazy-sequences-infinitely-long-data">Infinity I: Lazy Sequences (infinitely long data)</a></h1>
+<p>Video: <code>11_Mon_10_01_18.ts</code>.</p>
+<p>Функции в CS (например, <code>y(x) = x + 5</code>):</p>
+<ul>
+<li>Позволяют создавать параметризированные выражения.</li>
+<li>Позволяют задерживать вычисление тела до тех пор, пока не будет предоставлен параметр <code>x</code>. Задержать вычисление до тех пор, пока мы не захотим его выполнить.</li>
+</ul>
+<p>Orthogonal means completely independent.</p>
+<p>Функция может быть выполнена сразу же. Так делаются байндинги. Например, <code>let</code>-expression фактически выполняется так:</p>
+<pre><code class="language-lisp">(let ([x 3])
+  (+ x x))
+
+;; Under the hood `let` works like this
+((λ (x)
+   (+ x x)) 3)
+</code></pre>
+<p>Задача <code>let</code> — дать имя значению <code>3</code>, выполнить выражение с этим именем и исчезнуть.</p>
+<p>В такого рода функциях мы не используем возможность задержать вычисление.</p>
+<p>А чем может быть полезна функция без параметров?</p>
+<p>Дальше разговор пойдёт про откладывание вычислений. Например, для формирования больших деревьев, где нужно откладывать формирование всего дерева.</p>
+<p>Recursive binding in Pyret:</p>
+<pre><code class="language-pyret">rec ones = link(1, ones)
+</code></pre>
+<p>Pyret syntax for a lambda:</p>
+<pre><code class="language-pyret"># Two equal constructions:
+
+{(x): x + 3}(3) # shorter
+
+(lam(x): x + 3 end)(3)
+</code></pre>
+<p>Пример потока (stream, lazy list):</p>
+<pre><code class="language-pyret">data Lz&lt;T&gt;:
+  | lzlink(e :: T, r :: ( -&gt; Lz&lt;T&gt;))
+end
+
+fun fst&lt;T&gt;(s :: Lz&lt;T&gt;) -&gt; T:
+  s.e
+end
+
+fun rst&lt;T&gt;(s :: Lz&lt;T&gt;) -&gt; Lz&lt;T&gt;:
+  s.r()
+end
+
+fun take&lt;T&gt;(s :: Lz&lt;T&gt;, n :: Number) -&gt; List&lt;T&gt;:
+  if n == 0:
+    empty
+  else:
+    link(fst(s), take(rst(s), n - 1))
+  end
+end
+
+
+# Stream of ones: 1, 1, 1, ...
+rec ones = 
+  lzlink(1,
+    {(): ones})
+
+fun natsfrom(n :: Number):
+  doc: &quot;Returns a stream of natural numbers.&quot;
+  lzlink(n, {(): natsfrom(n + 1)})
+end
+
+# Stream of natural numbers from 0: 0, 1, 2, ...
+nats = natsfrom(0)
+
+check:
+  take(ones, 5) is [list: 1, 1, 1, 1, 1]
+  take(nats, 5) is [list: 0, 1, 2, 3, 4]
+end
+</code></pre>
+<p>Lists are finite, streams are infinite.</p>
+<p>Thunk is a function with no parameters, like lambda in stream above. Thunk is a lambda with no arguments.</p>
+<p>Индукция и программирование по индукции не работает на потоках, потому что нет базового случая. Тут работает коиндукция.</p>
+<p>Примеры мап-функций для одного и двух потоков:</p>
+<pre><code class="language-pyret">fun lzmap&lt;A, B&gt;(
+    fn :: (A -&gt; B),
+    s :: Lz&lt;A&gt;) -&gt; Lz&lt;B&gt;:
+  lzlink(
+    fn(fst(s)),
+    {(): lzmap(fn, rst(s))})
+end
+
+fun lzmap2&lt;A, B, C&gt;(
+    fn:: (A, B -&gt; C),
+    s1 :: Lz&lt;A&gt;,
+    s2 :: Lz&lt;B&gt;) -&gt; Lz&lt;C&gt;:
+  lzlink(
+    fn(fst(s1), fst(s2)),
+    {(): lzmap2(fn, rst(s1), rst(s2))})
+end
+
+check:
+  take(lzmap({(n): n + 111}, nats), 5) is [list: 111, 112, 113, 114, 115]
+  take(lzmap((_ - 1), nats), 5) is [list: -1, 0, 1, 2, 3]
+end
+</code></pre>
+<p>Базового случая нет, но анонимная функция (thunk) предотвращает бесконечную рекурсию.</p>
+<p>С помощью <code>lzmap2</code> можно сгенерировать бесконечную последовательность чисел Фибоначчи:</p>
+<pre><code class="language-pyret">rec fib-seq =
+  lzlink(0,
+    {(): lzlink(1,
+        {(): lzmap2({(
+                a :: Number,
+                b :: Number):
+              a + b},
+            fib-seq,
+            rst(fib-seq))})})
+
+# 0 1 1 2 3 5 ...
+#   0 1 1 2 3 ...
+#   1 2 3 5 8 ...
+
+check:
+  take(fib-seq, 10) is [list: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+end
+</code></pre>
+<h2><a class="header" href="#Материлы" id="Материлы">Материлы</a></h2>
+<ul>
+<li><a href="https://papl.cs.brown.edu/2019/func-as-data.html">13. Functions as Data</a>, PAPL.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../10/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../12/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../10/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../12/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
